@@ -15,33 +15,35 @@ public class Solution07 {
      *  Calculate width and store in 'areaOfRoom'
      *  Output in square feet and square meters
      */
-    public static final double CONVERSION = 0.09290304;
+    private static final Scanner input = new Scanner(System.in);
+    private static final double CONVERSION = 0.09290304;
 
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int lengthOfRoom = new Solution07().getLength(input);
-        int widthOfRoom = new Solution07().getWidth(input);
-        int metricAreaOfRoom = new Solution07().getMetricArea(lengthOfRoom, widthOfRoom);
-        double imperialAreaOfRoom = new Solution07().getImperialArea(metricAreaOfRoom);
-
-        System.out.printf("You entered dimensions of %d feet by %d feet.%nThe area is%n%d square feet%n%.3f square meters",lengthOfRoom,widthOfRoom,metricAreaOfRoom,imperialAreaOfRoom);
-    }
-
-    public int getLength(Scanner input){
+    private int getLength(){
         System.out.print("What is the length of the room in feet? ");
         return input.nextInt();
     }
 
-    public int getWidth(Scanner input){
+    private int getWidth(){
         System.out.print("What is the width of the room in feet? ");
         return input.nextInt();
     }
 
-    public int getMetricArea(int lengthOfRoom, int widthOfRoom){
+    private int getMetricArea(int lengthOfRoom, int widthOfRoom){
         return lengthOfRoom * widthOfRoom;
     }
 
-    public double getImperialArea(int metricArea){
+    private double getImperialArea(int metricArea){
         return metricArea * CONVERSION;
     }
+
+    public static void main(String[] args){
+        Solution07 app = new Solution07();
+        int lengthOfRoom = app.getLength();
+        int widthOfRoom = app.getWidth();
+        int metricAreaOfRoom = app.getMetricArea(lengthOfRoom, widthOfRoom);
+        double imperialAreaOfRoom = app.getImperialArea(metricAreaOfRoom);
+
+        System.out.printf("You entered dimensions of %d feet by %d feet.%nThe area is%n%d square feet%n%.3f square meters",lengthOfRoom,widthOfRoom,metricAreaOfRoom,imperialAreaOfRoom);
+    }
+
 }
