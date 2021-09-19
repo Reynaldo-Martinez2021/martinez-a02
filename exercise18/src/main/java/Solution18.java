@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Solution18 {
     /*
-     *  UCF COP3330 Fall 2021 Assignment 2 Solution 17
+     *  UCF COP3330 Fall 2021 Assignment 2 Solution 18
      *  Copyright 2021 Reynaldo Martinez
      *
      *  Problem: Temperature Converter
