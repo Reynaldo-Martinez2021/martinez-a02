@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Solution19 {
     /*
-     *  UCF COP3330 Fall 2021 Assignment 2 Solution 18
+     *  UCF COP3330 Fall 2021 Assignment 2 Solution 19
      *  Copyright 2021 Reynaldo Martinez
      *
      *  Problem: BMI Calculator
