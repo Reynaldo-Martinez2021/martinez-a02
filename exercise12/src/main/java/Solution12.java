@@ -14,34 +14,36 @@ public class Solution12 {
      *  ask user for time 'timeOfInvestment'
      *  Formula is A= P(1 +rt) or amountAtEndInvestment = principalAmount(1+ rateOfInterest*timeOfInvestment)
      */
+    private static final Scanner input = new Scanner(System.in);
 
-    public static void main(String[]args){
-        Scanner input = new Scanner(System.in);
-        int principalAmount = new Solution12().getPrincipal(input);
-        double rateOfInterest = new Solution12().getInterestRate(input);
-        int investmentTime = new Solution12().getInvestmentTime(input);
-        double totalInvestment = new Solution12().totalInvestment(principalAmount,rateOfInterest,investmentTime);
-
-        System.out.printf("After %d years at %.1f, the investment will be worth $%.2f", investmentTime, rateOfInterest, totalInvestment);
-    }
-
-    public int getPrincipal(Scanner input){
+    private int getPrincipal(Scanner input){
         System.out.print("Enter the principal: ");
         return input.nextInt();
     }
 
-    public double getInterestRate(Scanner input){
+    private double getInterestRate(Scanner input){
         System.out.print("Enter the rate of interest: ");
         return input.nextDouble();
     }
 
-    public int getInvestmentTime(Scanner input){
+    private int getInvestmentTime(Scanner input){
         System.out.print("Enter the number of years: ");
         return input.nextInt();
     }
 
-    public double totalInvestment(int principalAmount, double rateOfInterest, int investmentTime){
+    private double totalInvestment(int principalAmount, double rateOfInterest, int investmentTime){
         double totalInvestment = principalAmount*(1+(rateOfInterest/100)*investmentTime);
         return Math.ceil(totalInvestment*100)/100;
     }
+
+    public static void main(String[]args){
+        Solution12 app = new Solution12();
+        int principalAmount = app.getPrincipal(input);
+        double rateOfInterest = app.getInterestRate(input);
+        int investmentTime = app.getInvestmentTime(input);
+        double totalInvestment = app.totalInvestment(principalAmount,rateOfInterest,investmentTime);
+
+        System.out.printf("After %d years at %.1f, the investment will be worth $%.2f", investmentTime, rateOfInterest, totalInvestment);
+    }
+
 }

@@ -14,27 +14,27 @@ public class Solution09 {
      *  Calculate the square ft of room and determine amtOfPaint needed
      *  Always round up for gallons of paint
      */
-    public static final double MAX_AREA_OF_GALLON = 350;
+    private static final double MAX_AREA_OF_GALLON = 350;
+    private static final Scanner input = new Scanner(System.in);
+
+    private int getLength(){
+        System.out.print("What is the length of the room in feet? ");
+        return Solution09.input.nextInt();
+    }
+    private int getWidth(){
+        System.out.print("What is the width of the room in feet? ");
+        return Solution09.input.nextInt();
+    }
+    private int calculatePaint(int areaOfRoom){
+        return (int)Math.ceil(areaOfRoom/MAX_AREA_OF_GALLON);
+    }
 
     public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int lengthOfRoom = new Solution09().getLength(input);
-        int widthOfRoom = new Solution09().getWidth(input);
-        int amtOfPaint = new Solution09().calculatePaint((lengthOfRoom*widthOfRoom));
+        Solution09 app = new Solution09();
+        int lengthOfRoom = app.getLength();
+        int widthOfRoom = app.getWidth();
+        int amtOfPaint = app.calculatePaint((lengthOfRoom*widthOfRoom));
         System.out.printf("You will need to purchase %d gallons of paint to cover %d square feet", amtOfPaint, (lengthOfRoom*widthOfRoom));
     }
 
-    public int getLength(Scanner input){
-        System.out.print("What is the length of the room in feet? ");
-        return input.nextInt();
-    }
-
-    public int getWidth(Scanner input){
-        System.out.print("What is the width of the room in feet? ");
-        return input.nextInt();
-    }
-
-    public int calculatePaint(int areaOfRoom){
-        return (int)Math.ceil(areaOfRoom/MAX_AREA_OF_GALLON);
-    }
 }

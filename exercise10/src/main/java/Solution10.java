@@ -16,63 +16,65 @@ public class Solution10 {
      *  calculate the tax and store in 'tax'
      *  calculate the total 'totalPrice'
      */
-
+    private static final Scanner input = new Scanner(System.in);
     public static final double TAX = 0.055;
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int totalOfItemOne = new Solution10().getItemOne(input);
-        int totalOfItemTwo = new Solution10().getItemTwo(input);
-        int totalOfItemThree = new Solution10().getItemThree(input);
 
-        double subTotalPrice = new Solution10().calculateSubTotal(totalOfItemOne,totalOfItemTwo,totalOfItemThree);
-        double totalTax = new Solution10().calculateTax(subTotalPrice);
-        double totalPrice = new Solution10().calculateTotal(subTotalPrice, totalTax);
-
-        System.out.printf("Subtotal: %.2f%nTax: %.2f%nTotal: %.2f", subTotalPrice, totalTax, totalPrice);
-    }
-
-    public int getItemOne(Scanner input){
+    private int getItemOne(){
         System.out.print("Enter the price of item 1: ");
-        String tempItemOne = input.nextLine();
+        String tempItemOne = Solution10.input.nextLine();
         int itemOne = Integer.parseInt(tempItemOne);
         System.out.print("Enter the quantity of item 1: ");
-        String tempAmtItemOne = input.nextLine();
+        String tempAmtItemOne = Solution10.input.nextLine();
         int amtItemOne = Integer.parseInt(tempAmtItemOne);
 
         return itemOne * amtItemOne;
     }
 
-    public int getItemTwo(Scanner input){
+    private int getItemTwo(){
         System.out.print("Enter the price of item 2: ");
-        String tempItemTwo = input.nextLine();
+        String tempItemTwo = Solution10.input.nextLine();
         int itemTwo = Integer.parseInt(tempItemTwo);
         System.out.print("Enter the quantity of item 2: ");
-        String tempAmtItemTwo = input.nextLine();
+        String tempAmtItemTwo = Solution10.input.nextLine();
         int amtItemTwo = Integer.parseInt(tempAmtItemTwo);
 
         return itemTwo * amtItemTwo;
     }
 
-    public int getItemThree(Scanner input){
+    private int getItemThree(){
         System.out.print("Enter the price of item 3: ");
-        String tempItemThree = input.nextLine();
+        String tempItemThree = Solution10.input.nextLine();
         int itemThree = Integer.parseInt(tempItemThree);
         System.out.print("Enter the quantity of item 3: ");
-        String tempAmtItemThree = input.nextLine();
+        String tempAmtItemThree = Solution10.input.nextLine();
         int amtItemThree = Integer.parseInt(tempAmtItemThree);
 
         return itemThree * amtItemThree;
     }
 
-    public double calculateSubTotal(int totalOfItemOne, int totalOfItemTwo, int totalOfItemThree){
+    private double calculateSubTotal(int totalOfItemOne, int totalOfItemTwo, int totalOfItemThree){
         return (totalOfItemOne + totalOfItemTwo + totalOfItemThree);
     }
 
-    public double calculateTax(double subTotal){
+    private double calculateTax(double subTotal){
         return subTotal * TAX;
     }
 
     public double calculateTotal(double subTotal, double totalTax){
         return subTotal + totalTax;
     }
+
+    public static void main(String[] args){
+        Solution10 app = new Solution10();
+        int totalOfItemOne = app.getItemOne();
+        int totalOfItemTwo = app.getItemTwo();
+        int totalOfItemThree = app.getItemThree();
+
+        double subTotalPrice = app.calculateSubTotal(totalOfItemOne,totalOfItemTwo,totalOfItemThree);
+        double totalTax = app.calculateTax(subTotalPrice);
+        double totalPrice = app.calculateTotal(subTotalPrice, totalTax);
+
+        System.out.printf("Subtotal: %.2f%nTax: %.2f%nTotal: %.2f", subTotalPrice, totalTax, totalPrice);
+    }
+
 }

@@ -13,22 +13,23 @@ public class Solution11 {
      *  Ask user for conversion rate 'conversionRate'
      *  Calculate all of it in a single output
      */
+    private static final Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int amtOfEuros = new Solution11().getAmtOfEuro(input);
-        double exchangeRate = new Solution11().getExchangeRate(input);
-        System.out.printf("%d euros at an exchange rate of %.4f is %.2f U.S. dollars", amtOfEuros, exchangeRate,Math.ceil(amtOfEuros*exchangeRate*100)/100);
-    }
-
-    public int getAmtOfEuro(Scanner input){
+    private int getAmtOfEuro(Scanner input){
         System.out.print("How many euros are you exchanging? ");
         return input.nextInt();
     }
 
-    public double getExchangeRate(Scanner input){
+    private double getExchangeRate(Scanner input){
         System.out.print("What is the exchange rate? ");
         return input.nextDouble();
+    }
+
+    public static void main(String[] args){
+        Solution11 app = new Solution11();
+        int amtOfEuros = app.getAmtOfEuro(input);
+        double exchangeRate = app.getExchangeRate(input);
+        System.out.printf("%d euros at an exchange rate of %.4f is %.2f U.S. dollars", amtOfEuros, exchangeRate,Math.ceil(amtOfEuros*exchangeRate*100)/100);
     }
 
 }
